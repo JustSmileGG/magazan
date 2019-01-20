@@ -1,0 +1,23 @@
+.about{
+    margin: 20px 0;
+    background-color: #f8f8f8;
+    padding-bottom: 80px;
+    &__title{
+        color: #3d3d3d;
+        font-size: 40px;
+        margin: 15px 0;
+        text-align: center;
+        span{
+            font-family: 'Bungee Shade', cursive;
+        }
+    };
+    &__infoText{
+        font-size: 24px;
+        color: #3d3d3d;
+        margin: 20px;
+        span{
+            font-family: 'Bungee Shade', cursive;
+        }
+
+    }
+}
