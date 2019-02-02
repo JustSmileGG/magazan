@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => (
+const Header = ({ user, setUser }) => (
   <div className="header">
-    <div className="container">
+    <div className="container" style={{ margin: '0 auto'}}>
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-md-2">
           <div className="header__logo">
             <Link to="/">
               <img
@@ -15,10 +15,10 @@ const Header = () => (
             </Link>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-3">
           <div className="header__text">Magazan</div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-7">
           <div className="header__nav-menu">
             <ul>
               <li>
@@ -30,6 +30,15 @@ const Header = () => (
               <li>
                 <Link to="/about">About</Link>
               </li>
+              {!user ? (
+                <li>
+                  <Link to="/auth">Sign in / Sign up</Link>
+                </li>
+              ) : (
+                <li>
+                  <Link to="/" onClick={() => setUser()}>Log out</Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

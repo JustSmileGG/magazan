@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
-const Footer = () => (
-  <div className="footer">
+const Footer = (props) => {
+  const isCatalogPage = props.location.pathname === '/catalog';
+  console.log(isCatalogPage);
+  return(
+  <div className={`footer ${isCatalogPage ? 'footer-relative' : ''}`} >
     <div className="container">
       <div className="row">
         <div className="col-md-6 col-sm-12">
@@ -32,6 +35,6 @@ const Footer = () => (
       </div>
     </div>
   </div>
-);
+)};
 
-export default Footer;
+export default withRouter(Footer);

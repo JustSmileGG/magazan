@@ -1,0 +1,40 @@
+.item{
+    &__title{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 40px;
+        line-height: 1.2em;
+        font-weight: 400;
+        color: #3d3d3d;
+    };
+    &__content{
+        display: block;        
+        &-image{
+            width: 100%;
+            object-fit: contain;
+            height: 550px;
+        };
+        &-descriptionWrap{
+            background-color: #ffffff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 16px;
+        };
+        &-description{
+            margin-bottom: 10px;
+            &:last-child{
+                margin-bottom: 0;
+            };
+            span{
+                font-weight: 700;
+            };
+            &--price{
+                font-size: 16px;
+                span{
+                    color:#fb515d;
+                    font-size: 18px;
+                }
+            };
+        };
+    };
+}

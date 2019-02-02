@@ -1,0 +1,42 @@
+.auth-page {
+    width: 320px;
+    margin: 50px auto;
+    padding: 40px 40px;
+    background-color: #fff;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.09);
+    &__title {
+      margin: 0 0 40px 0;
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+    input {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+      width: 100%;
+      box-shadow: none !important;
+    }
+    button {
+      display: block;
+      margin: 40px auto 0 auto;
+      width: 100%;
+      padding: 10px;
+      background:#0085F1;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 0 6px 20px rgba(0, 118, 255, 0.23);
+      cursor: pointer;
+    };
+    &__error {
+      padding: 10px;
+      background-color: #f2dede;
+      color: #a94442;
+      font-size: 14px;
+      border-radius: 4px;
+    };
+  }
+  

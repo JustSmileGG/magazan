@@ -40,7 +40,7 @@
                         outline: 0;
                         cursor: pointer;
                         color: #3d3d3d;
-                      
+                    
                     };
                     .active{
                         color: #fff;
@@ -55,26 +55,28 @@
             margin: 0 20px;
         };
         margin: 21px 10px;
+        &-wrap{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
     };
+  
+    }
     &__item{
-        .row{
-            margin: 0;
-        }
-        position: relative;
-        float: left;
-        min-height: 1px;
-        padding-left: .625rem;
-        padding-right: .625rem;
-        margin: 10px;
+
+        height: 350px;
         &_wrap{
             position: relative;
+            padding: 10px .625rem; 
             clear: both;
             height: 100%;
             background-color: #fff;
             border-radius: 2px;
             box-shadow: 0 0 2px 0 rgba(51,51,51,.05), 0 1px 4px 0 rgba(51,51,51,.15);
             a{
-                display: block;
+                display: flex;
+                height: 100%;
+                flex-direction: column;
                 color: #3d3d3d;
                 text-decoration: none;
                 outline: 0;
@@ -93,14 +95,14 @@
             opacity: .95;
             transform: scale(1);
             transition: opacity .4s ease 0s,transform .4s ease 0s;
-            min-height: 55px;
             display: block;
-            margin-bottom: .3125rem;
+            margin-bottom: 10px;
             color: transparent;
             position: relative;
             max-width: 100%;
             border: 0;
-            object-fit: cover;
+            object-fit: contain;
+            height: 230px;
         };
         &_text{
             padding: .625rem;

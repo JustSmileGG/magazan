@@ -4,13 +4,13 @@ import Component from "react-component-component";
 import { API_KEY } from "../../../libs/Env";
 import { Link } from "react-router-dom";
 
-const filterByType = (state, setState, type) => {
-  const items =
-    type === "all" ? state : state.filter(item => item.fields.type === type);
-  return items;
-};
 
 const Catalog = ({ user, setUser }) => {
+  const filterByType = (state, setState, type) => {
+    const items =
+      type === "all" ? state : state.filter(item => item.fields.type === type);
+    return items;
+  };
   return (
     <Layout user={user} setUser={setUser}>
       <Component
@@ -47,7 +47,7 @@ const Catalog = ({ user, setUser }) => {
             <div className="catalog">
               <div className="container">
                 <div className="row">
-                  <div className="col-md-2">
+                  <div className="col-md-3">
                     <div className="catalog__sidebar">
                       <div className="catalog__sidebar_menu">
                         <ul className="catalog__sidebar_menu-list">
@@ -88,16 +88,16 @@ const Catalog = ({ user, setUser }) => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-10">
+                  <div className="col-md-9">
                     <div className="catalog__items">
-                      <div className="row">
+                      <div className="catalog__items-wrap">
                         {state.items &&
                           filterByType(state.items, setState, state.type).map(
                             ({ id, fields }) => (
-                              <div key={id} className="col-md-6">
-                                <div className="catalog__item">
+                              // <div  className="col-md-6">
+                                <div key={id} className="catalog__item" >
                                   <div className="catalog__item_wrap">
-                                    <Link to="#">
+                                    <Link to={`/item/${id}`}>
                                       <span>
                                         <img
                                           src={fields.img[0].url}
@@ -127,7 +127,7 @@ const Catalog = ({ user, setUser }) => {
                                     </Link>
                                   </div>
                                 </div>
-                              </div>
+                              // </div>
                             )
                           )}
                       </div>

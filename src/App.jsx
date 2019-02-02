@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Component from "react-component-component";
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -8,6 +8,8 @@ const getUserFromLocalStorage = () => {
   const userStr = localStorage.getItem("user");
   if (userStr) {
     try {
+      console.log("User: ", userStr);
+
       return JSON.parse(userStr);
     } catch (e) {
       console.warn("Cannot deserialize user", e);
@@ -15,6 +17,18 @@ const getUserFromLocalStorage = () => {
     }
   } else {
     return null;
+  }
+};
+
+const setUserToLocalStorage = user => {
+  if (user) {
+    try {
+      localStorage.setItem("user", JSON.stringify(user));
+    } catch (e) {
+      console.error(e.message);
+    }
+  } else {
+    console.error("User is empty!");
   }
 };
 
@@ -27,7 +41,13 @@ const App = () => {
     >
       {({ state, setState }) => {
         const setUser = user => {
-          setState({ user });
+          if (user) {
+            setState({ user });
+            setUserToLocalStorage(user);
+          } else {
+            setState({ user });
+            localStorage.removeItem("user");
+          }
         };
 
         return (

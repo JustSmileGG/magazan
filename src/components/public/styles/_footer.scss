@@ -1,9 +1,12 @@
 .footer {
     position: fixed;
-    width: 100%;
     bottom: 0;
+    width: 100%;
     padding: 15px 0;
     background-color: #3d3d3d;
+    &-relative{
+        position: relative;
+    }
     &__name {
         font-weight: 600;
         font-size: 14px;

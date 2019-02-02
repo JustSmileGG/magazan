@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import Component from "react-component-component";
 import Layout from "../../public/Layout";
 import Slider from 'react-slick';
 

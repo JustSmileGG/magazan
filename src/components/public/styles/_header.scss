@@ -4,6 +4,7 @@
     line-height: 89px;
     background-color: #3d3d3d;
     z-index: 2;
+    text-align: center;
         &__logo{
             a{
         transition: 0.2s ease-in-out;
@@ -54,8 +55,6 @@
             font-family: "Bungee Shade", cursive;
             font-size: 70px;
             text-align: left;
-            position: absolute;
-            left: -86px;
             color: #ffffff;
         };
 
