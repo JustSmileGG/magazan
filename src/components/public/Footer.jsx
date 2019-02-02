@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 
 const Footer = (props) => {
   const isCatalogPage = props.location.pathname === '/catalog';
-  console.log(isCatalogPage);
   return(
   <div className={`footer ${isCatalogPage ? 'footer-relative' : ''}`} >
     <div className="container">

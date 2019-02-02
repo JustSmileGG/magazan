@@ -3,9 +3,11 @@ import Layount from "../../public/Layout";
 import Component from "react-component-component";
 import { API_KEY } from "../../../libs/Env";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { withRouter } from 'react-router-dom';
 import "react-tabs/style/react-tabs.css";
 
-const AuthPage = ({ user, setUser }) => {
+const AuthPage = ({ user, setUser, history }) => {
+  
   return (
     <Layount user={user} setUser={setUser}>
       <Component
@@ -27,8 +29,7 @@ const AuthPage = ({ user, setUser }) => {
                   <form
                     onSubmit={async event => {
                       event.preventDefault();
-                      // const { email, password } = state;
-
+                      const { email, password } = state;
                       const resp = await fetch(
                         "https://api.airtable.com/v0/app3ZVN7Q91i54kvo/Users",
                         {
@@ -42,7 +43,20 @@ const AuthPage = ({ user, setUser }) => {
                       try {
                         if (resp.ok) {
                           const respData = await resp.json();
-                          console.log(`Resp data: ${respData}`);
+                          console.log({ respData });
+                          const isProfile = respData.records.find(
+                            user =>
+                              user.fields.email === email &&
+                              user.fields.password === password
+                          );
+                          console.log({ isProfile });
+                          if (isProfile && Object.keys(isProfile).length > 0) {
+                            setUser({
+                              email,
+                              password
+                            });
+                          history.push('/');
+                          }
                         } else {
                           const { message } = await resp.json();
                           throw Error(message);
@@ -57,7 +71,7 @@ const AuthPage = ({ user, setUser }) => {
                       required
                       value={state.email}
                       onChange={({ target: { value } }) =>
-                        setState(state => ({ state, email: value }))
+                        setState({ email: value })
                       }
                       placeholder="Email"
                     />
@@ -66,7 +80,7 @@ const AuthPage = ({ user, setUser }) => {
                       type="password"
                       value={state.password}
                       onChange={({ target: { value } }) =>
-                        setState(state => ({ state, password: value }))
+                        setState({ password: value })
                       }
                       placeholder="Password"
                       minLength="8"
@@ -101,6 +115,7 @@ const AuthPage = ({ user, setUser }) => {
                             email,
                             password
                           });
+                          history.push('/');
                         } else {
                           const { message } = await resp.json();
                           throw Error(message);
@@ -141,4 +156,4 @@ const AuthPage = ({ user, setUser }) => {
     </Layount>
   );
 };
-export default AuthPage;
+export default withRouter(AuthPage);
